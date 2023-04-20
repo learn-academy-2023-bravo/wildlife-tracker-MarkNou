@@ -1,12 +1,12 @@
 class SightsController < ApplicationController
 def index
-    sights = Sight.all
+    sights = Sight.where(date: '2023-01-01'..'2027-01-01')
     render json: sights 
 end
 
 def show
-    sight = Sight.find(params[:id])
-    render json: sight
+    sight = Sight.find_by(id: params[:id])
+    render json: sight, include: [:animal]
 end
 
 def create
