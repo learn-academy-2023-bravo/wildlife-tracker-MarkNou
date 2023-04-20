@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_20_220336) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_20_222912) do
   create_table "animals", force: :cascade do |t|
     t.string "common"
     t.string "binomial"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sightings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sights", force: :cascade do |t|
+    t.string "latitude"
+    t.string "longitude"
+    t.date "date"
+    t.integer "animal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
