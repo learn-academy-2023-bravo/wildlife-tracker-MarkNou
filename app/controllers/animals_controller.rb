@@ -1,6 +1,6 @@
 class AnimalsController < ApplicationController
     def index
-        animals = Animal.al
+        animals = Animal.all
         render json: animals
     end
 
@@ -14,7 +14,7 @@ class AnimalsController < ApplicationController
         if animal.valid?
             render json: animal
         else
-            animal.errors
+            render json: { errors: animal.errors }, status: :unprocessable_entity
         end
     end
 
@@ -24,7 +24,7 @@ class AnimalsController < ApplicationController
         if animal.valid?
             render json: Animal
         else
-            animal.errors
+            render json: { errors: animal.errors }, status: :unprocessable_entity
         end
     end
 
